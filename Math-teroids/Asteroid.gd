@@ -16,6 +16,7 @@ var motion : Vector2
 signal on_destroy
 
 func _ready():
+	randomize()
 	screen_size = get_viewport_rect().size
 	randomize()
 	value_text.text = str(value)
@@ -29,7 +30,18 @@ func _ready():
 	effects.interpolate_property(image,"scale",image.scale,Vector2(2,2),0.33,Tween.TRANS_LINEAR,Tween.EASE_OUT)	
 
 func _set_random_value():
-	value = rand_range(0,20)
+	if global.grade_set == global.grade.Kindergarden:
+		value = rand_range(0,10)
+	if global.grade_set == global.grade.First:
+		value = rand_range(0,10)
+	if global.grade_set == global.grade.Second:
+		value = rand_range(0,50)
+	if global.grade_set == global.grade.Third:
+		value = rand_range(0,100)
+	if global.grade_set == global.grade.Fourth:
+		value = rand_range(0,500)
+	if global.grade_set == global.grade.Fifth:
+		value = rand_range(0,1000)
 
 func _process(delta):
 	position.x = wrapf(position.x, -screen_buffer, screen_size.x + screen_buffer)

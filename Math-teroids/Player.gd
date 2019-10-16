@@ -12,7 +12,7 @@ const ACC = 0.05
 const DEC = 0.01
 var motion = Vector2(0,0)
 var screen_size
-var screen_buffer = 5
+var screen_buffer = 8
 var can_shoot = true
 
 export (PackedScene) var bullet

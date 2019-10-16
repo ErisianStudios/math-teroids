@@ -6,6 +6,7 @@ var asteroid_diff: int
 var asteroid = load("res://Asteroid.tscn")
 var timer = 10
 func _ready():
+	randomize()
 	pass
 	
 func viewport_size():
