@@ -7,7 +7,7 @@ var n2: int
 var eq = ""
 var answer: int
 var lives : int = 3
-var main_scene = load("res://Main.tscn")
+var main_scene = load("res://Start.tscn")
 var game_over_scene = load("res://GameOver.tscn")
 
 enum grade {Kindergarden,First,Second,Third,Fourth,Fifth}
@@ -123,12 +123,13 @@ func generate_third():
 	if rnd == 1:
 		n1 = randi() % 100
 		n2 = randi() % 100
-		eq = str(n1) + " - " + str(n2)
+
 		if n1 < n2:
 			var tmp = n1
 			n1 = n2
 			n2 = tmp
 		answer = n1 - n2
+		eq = str(n1) + " - " + str(n2)
 		spawn._spawn_asteroid_value(answer)
 	if rnd == 2:
 		n1 = randi() % 25
@@ -149,12 +150,12 @@ func generate_fourth():
 	if rnd == 1:
 		n1 = randi() % 500
 		n2 = randi() % 500
-		eq = str(n1) + " - " + str(n2)
 		if n1 < n2:
 			var tmp = n1
 			n1 = n2
 			n2 = tmp
 		answer = n1 - n2
+		eq = str(n1) + " - " + str(n2)
 		spawn._spawn_asteroid_value(answer)
 	if rnd == 2:
 		n1 = randi() % 50
@@ -179,15 +180,16 @@ func generate_fifth():
 		eq = str(n1) + " + " + str(n2)
 		answer = n1 + n2
 		spawn._spawn_asteroid_value(answer)
+
 	if rnd == 1:
 		n1 = randi() % 750
 		n2 = randi() % 750
-		eq = str(n1) + " - " + str(n2)
 		if n1 < n2:
 			var tmp = n1
 			n1 = n2
 			n2 = tmp
 		answer = n1 - n2
+		eq = str(n1) + " - " + str(n2)
 		spawn._spawn_asteroid_value(answer)
 	if rnd == 2:
 		n1 = randi() % 150
@@ -198,6 +200,10 @@ func generate_fifth():
 	if rnd == 3:
 		n1 = randi() % 300
 		n2 = randi() % 200
+		if n1 < n2:
+			var tmp = n1
+			n1 = n2
+			n2 = tmp
 		eq = str(n1) + " / " + str(n2)
 		answer = n1 / n2
 		spawn._spawn_asteroid_value(answer)
