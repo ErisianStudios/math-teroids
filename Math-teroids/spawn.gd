@@ -20,7 +20,7 @@ func _process(delta):
 	timer -= delta
 	if timer <= 0:
 		_spawn_asteroid()
-		timer = 3
+		timer = 10
 
 func _spawn_asteroid_value(value):
 	var a = asteroid.instance()

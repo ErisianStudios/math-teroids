@@ -42,6 +42,7 @@ func _set_random_value():
 		value = rand_range(0,500)
 	if global.grade_set == global.grade.Fifth:
 		value = rand_range(0,1000)
+	value_text.text = value
 
 func _process(delta):
 	position.x = wrapf(position.x, -screen_buffer, screen_size.x + screen_buffer)
