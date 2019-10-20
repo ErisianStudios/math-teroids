@@ -25,6 +25,12 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()
 
+func _randomize_asteroids():
+	var asteroids = get_tree().get_nodes_in_group("Asteroids")
+	for asteroid in asteroids:
+		asteroid._set_random_value()
+		asteroid._set_display_value()
+
 func _new_equation():
 	match grade_set:
 		grade.Kindergarden:
@@ -63,6 +69,7 @@ func _restart_game():
 
 func _game_over():
 	var roids = get_tree().get_nodes_in_group("Asteroids")
+	spawn.timer = 10000000000000
 	for roid in roids:
 		roid.queue_free()
 	get_tree().change_scene_to(game_over_scene)
@@ -208,3 +215,6 @@ func generate_fifth():
 		answer = n1 / n2
 		spawn._spawn_asteroid_value(answer)
 		pass
+		
+func on_asteroid_destroy():
+	pass
