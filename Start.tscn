@@ -1,0 +1,117 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Start.gd" type="Script" id=1]
+[ext_resource path="res://Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Sprites/Ship.png" type="Texture" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer"]
+margin_right = 640.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 0, 55 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.490196, 0, 0.458824, 1 )
+text = "Mathteroids!
+(Pew Pew)"
+align = 1
+valign = 1
+
+[node name="Buffer" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 59.0
+margin_right = 640.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="GridContainer" type="GridContainer" parent="Panel/VBoxContainer"]
+margin_top = 83.0
+margin_right = 640.0
+margin_bottom = 360.0
+size_flags_vertical = 3
+columns = 2
+
+[node name="Kindergarden" type="Button" parent="Panel/VBoxContainer/GridContainer"]
+margin_right = 318.0
+margin_bottom = 89.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Kindergarden"
+
+[node name="First" type="Button" parent="Panel/VBoxContainer/GridContainer"]
+margin_left = 322.0
+margin_right = 640.0
+margin_bottom = 89.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "First Grade"
+
+[node name="Second" type="Button" parent="Panel/VBoxContainer/GridContainer"]
+margin_top = 93.0
+margin_right = 318.0
+margin_bottom = 182.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Second Grade"
+
+[node name="Third" type="Button" parent="Panel/VBoxContainer/GridContainer"]
+margin_left = 322.0
+margin_top = 93.0
+margin_right = 640.0
+margin_bottom = 182.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Third Grade"
+
+[node name="Fourth" type="Button" parent="Panel/VBoxContainer/GridContainer"]
+margin_top = 186.0
+margin_right = 318.0
+margin_bottom = 275.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Fourth Grade"
+
+[node name="Fifth" type="Button" parent="Panel/VBoxContainer/GridContainer"]
+margin_left = 322.0
+margin_top = 186.0
+margin_right = 640.0
+margin_bottom = 275.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Fifth Grade"
+
+[node name="Ship" type="Sprite" parent="Panel"]
+editor/display_folded = true
+position = Vector2( 89.4615, 45.2542 )
+texture = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="Panel/Ship"]
+
+[node name="Ship2" type="Sprite" parent="Panel"]
+editor/display_folded = true
+position = Vector2( 549.736, 44.3517 )
+texture = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="Panel/Ship2"]
+[connection signal="pressed" from="Panel/VBoxContainer/GridContainer/Kindergarden" to="." method="_on_Kindergarden_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/GridContainer/First" to="." method="_on_First_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/GridContainer/Second" to="." method="_on_Second_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/GridContainer/Third" to="." method="_on_Third_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/GridContainer/Fourth" to="." method="_on_Fourth_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/GridContainer/Fifth" to="." method="_on_Fifth_pressed"]
